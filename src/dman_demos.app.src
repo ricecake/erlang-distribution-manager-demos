@@ -1,0 +1,12 @@
+{application, dman_demos,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { dman_demos_app, []}},
+  {env, []}
+ ]}.
