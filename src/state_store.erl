@@ -27,8 +27,8 @@ start_link() ->
 %% gen_server Function Definitions
 %% ------------------------------------------------------------------
 
-init(Args) ->
-    {ok, Args}.
+init() ->
+    {ok, dict:new()}.
 
 handle_add(_,_)->ok.
 handle_remove(_,_)->ok.
