@@ -12,8 +12,9 @@
 %% gen_server Function Exports
 %% ------------------------------------------------------------------
 
--export([init/1, handle_call/3, handle_cast/2, handle_info/2,
-         terminate/2, code_change/3]).
+-export([init/1, handle_add/2, handle_list/2, handle_remove/2,
+	 handle_status/2, handle_quorum_change/2, 
+         terminate/2, code_change/3, handle_call/3, handle_cast/2, handle_info/2]).
 
 %% ------------------------------------------------------------------
 %% API Function Definitions
@@ -28,6 +29,12 @@ start_link() ->
 
 init(Args) ->
     {ok, Args}.
+
+handle_add(_,_)->ok.
+handle_remove(_,_)->ok.
+handle_list(_,_)->ok.
+handle_status(_,_)->ok.
+handle_quorum_change(_,_)->ok.
 
 handle_call(_Request, _From, State) ->
     {reply, ok, State}.
