@@ -27,10 +27,15 @@ start_link() ->
 %% gen_server Function Definitions
 %% ------------------------------------------------------------------
 
-init() ->
-    {ok, dict:new()}.
+init([]) ->
+    {ok, {dict:new(), dict:new()}}.
 
-handle_add(_,_)->ok.
+handle_add({Bucket, Key, Details}, {KeyDict, BucketDict})->
+	NewKey    = dict:store(Key, Details, KeyDict),
+	NewBucket = dict:append(Bucket, Key, BucketDict),
+	State = {NewKey, NewBucket},
+	io:format("~p~n",[State]),
+	{ok, State}.
 handle_remove(_,_)->ok.
 handle_list(_,_)->ok.
 handle_status(_,_)->ok.
