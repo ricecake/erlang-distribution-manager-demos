@@ -21,7 +21,7 @@
 %% ------------------------------------------------------------------
 
 start_link() ->
-    gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
+    dman_worker:start_link(?MODULE, [], []).
 
 %% ------------------------------------------------------------------
 %% gen_server Function Definitions
